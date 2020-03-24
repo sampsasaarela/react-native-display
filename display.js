@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { 
-  View, 
-  Text, 
+import {
+  View,
+  Text,
   StyleSheet,
   Dimensions,
 } from 'react-native';
@@ -17,12 +17,12 @@ export default class Display extends Component {
 
   constructor(props) {
     super(props);
-    
+
     this.state = { enable: this.props.enable };
   }
 
   onEndAnimation(endState) {
-    if (endState.finished == true) 
+    if (endState.finished == true)
       this.setState({enable: false});
   }
 
@@ -30,7 +30,7 @@ export default class Display extends Component {
     return true;
   }
 
-  componentWillUpdate(nextProps, nextState) {
+  UNSAFE_componentWillUpdate(nextProps, nextState) {
 
     if (nextProps.enable != this.props.enable) {
       if (nextProps.enable == false) {
@@ -62,7 +62,7 @@ export default class Display extends Component {
   }
 
   render() {
-    
+
     if (this.state.enable == false && this.props.keepAlive != true)
       return null;
 
